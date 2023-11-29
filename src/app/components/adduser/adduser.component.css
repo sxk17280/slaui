@@ -1,0 +1,21 @@
+.mat-card {
+    width: 85%;
+}
+
+.main-div {
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-form-field {
+    width: 98%;
+}
+.w-100{
+    width: 100%;
+}

@@ -1,0 +1,25 @@
+<div class="main-div">
+  <div style="margin: 10px">
+    <h1 style="color: white;font-size: 55px; padding: 10px;">SLA Ticket Management System</h1>
+  </div>
+  <div style="display: flex;justify-content: center;margin-top: 190px;margin-right: 160px;">
+    <mat-card style="width: 32%;height:210px">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>E-Mail</mat-label>
+          <input matInput [(ngModel)]="email" placeholder="Email" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+            placeholder="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+        <!-- <button mat-raised-button color="warn">Google+</button>
+            <br><br><br>
+            <p>NewUser?<a routerLink="/login-signup">Register here!</a></p> -->
+      </form>
+    </mat-card>
+  </div>
+</div>

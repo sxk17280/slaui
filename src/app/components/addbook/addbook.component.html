@@ -1,0 +1,72 @@
+<div class="navbar">
+    <app-navigationbar></app-navigationbar>
+</div>
+<div class="main-div">
+    <mat-card class="mat-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput [(ngModel)]="Title" placeholder="Title"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 w-100">
+                    <!-- <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput [(ngModel)]="Category" placeholder="Category"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field> -->
+                    <mat-form-field appearance="outline" class="users-list">
+                        <mat-label>Select Priority</mat-label>
+                        <mat-select [(ngModel)]="PriorityId" >
+                          <mat-option *ngFor="let p of priorities" [value]="p.priorityId">
+                            {{p.description}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%;">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput [(ngModel)]="Description" rows="8" placeholder="Description"
+                            [ngModelOptions]="{standalone: true}">
+                    </textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-sm-12" style="width: 100%;">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Image Url</mat-label>
+                        <input matInput [(ngModel)]="Image" placeholder="Image URL"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div> -->
+            <!-- <div class="row">
+                    <div class="col-sm-6 w-100">
+                        <mat-form-field appearance="outline" class="users-list">
+                            <mat-label>Select Author</mat-label>
+                            <mat-select [(ngModel)]="Author" >
+                              <mat-option *ngFor="let author of authors" [value]="author">
+                                {{author}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>PublishedYear</mat-label>
+                        <input matInput [(ngModel)]="PublishedYear" placeholder="PublishedYear" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div> -->
+            <button mat-raised-button color="primary" style="float:right"  (click)="addBook()" >Create</button>
+        </div>
+
+    </mat-card>
+</div>

@@ -1,0 +1,18 @@
+table {
+    width: 80%;
+  }
+
+  .main-table{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .float-right{
+    float:right;
+  }
+
+  .table-mi{
+    margin-left: 94px;
+  }

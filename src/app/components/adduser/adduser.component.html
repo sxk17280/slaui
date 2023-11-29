@@ -1,0 +1,66 @@
+<div class="navbar">
+    <app-navigationbar></app-navigationbar>
+</div>
+<div class="main-div">
+    <mat-card class="mat-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>FirstName</mat-label>
+                        <input matInput [(ngModel)]="firstName" placeholder="FirstName"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>LastName</mat-label>
+                        <input matInput [(ngModel)]="lastName" placeholder="LastName"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="width: 100%;">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input matInput [(ngModel)]="address" placeholder="address"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input matInput [(ngModel)]="city" placeholder="City" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Phone</mat-label>
+                        <input matInput [(ngModel)]="phone" placeholder="phone" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="email" placeholder="Email" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 w-100">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput [(ngModel)]="password" placeholder="Password"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+            <button mat-raised-button color="primary" style="float:right"  (click)="addUser()" >Save</button>
+        </div>
+
+    </mat-card>
+</div>

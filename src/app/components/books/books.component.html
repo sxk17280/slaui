@@ -1,0 +1,52 @@
+<div class="main-div">
+ 
+  
+
+  <div class="products-div">
+    <div *ngFor="let book of books" class="book-div">
+      <mat-card class="book-div">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 slick-slide slick-active" data-slick-index="0"
+          aria-hidden="false" style="width: 400px;">
+          <div id="LI_1">
+            <div id="DIV_2">
+              <div id="DIV_7">
+                <h2 id="H2_8" class="txt-elipsis">
+                  #{{book.ticketId}} : {{book.title}}
+                </h2>
+                <p [title]="book.description" class="desc">{{book.description}}</p>
+                <span id="SPAN_9">
+                  {{book.author}}</span>
+              </div>
+              <div id="DIV_17">
+                <div id="DIV_18">
+                  <a id="A_19"
+                    ng-click="showFullData('059655558X','http://books.google.co.in/books?id=1PgCCVryjOQC&amp;printsec=frontcover&amp;dq=isbn:059655558X&amp;hl=&amp;cd=1&amp;source=gbs_api','basic');"><span
+                      class="f_detail">{{book.priority}}</span></a>
+                  <a class="A_20" ><span class="f_available">{{book.status}}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="check-buttons" *ngIf="isAdmin">
+            <div >
+              <mat-form-field appearance="outline" class="users-list" >
+                <mat-label>Select User</mat-label>
+                <mat-select (selectionChange)="selectUser(book,$event)">
+                  <mat-option *ngFor="let user of users" [value]="user.userId">
+                    {{user.firstName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div style="margin-bottom: 19px;">
+              <button mat-raised-button style="padding: 7px;width: 100px;" color="primary" (click)="checkIn(book)">Assign</button>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

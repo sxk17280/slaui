@@ -1,0 +1,100 @@
+<div class="navbar">
+  <app-navigationbar></app-navigationbar>
+</div>
+<div *ngIf="showTable" class="main-table">
+  <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+    <ng-container matColumnDef="ticketId">
+      <th mat-header-cell *matHeaderCellDef> #Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.ticketId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element" style="width: 10%;" > {{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description" >
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;" [title]="element.description">
+         {{element.description}} 
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="priority">
+      <th mat-header-cell *matHeaderCellDef>Priority</th>
+      <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dueDate">
+      <th mat-header-cell *matHeaderCellDef> Due Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.dueDate | date:"short"}} </td>
+    </ng-container>
+    <ng-container matColumnDef="createdByFirstName">
+      <th mat-header-cell *matHeaderCellDef> Created By </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdByFirstName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef> Comments </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" 
+          style="height: 48px;" (click)="openDialog(element)">
+          View</button> </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="openAddCommentDialog(element)"  style="margin: 10px;height: 48px;">
+          Add Comment</button>
+        <mat-form-field appearance="outline" class="users-list" style="margin-left: 10px;" *ngIf="isAdmin">
+          <mat-label>Change Status</mat-label>
+          <mat-select (selectionChange)="onStatusChange(element,$event)" [disabled]="element.statusId==4">
+            <mat-option *ngFor="let p of statusList" [value]="p.statusId">
+              {{p.description}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = dataIndex;"></tr>
+  </table>
+</div>
+<!-- <div *ngIf="!showTable">
+    <h1>NO Books</h1>
+</div> -->
+
+<ng-template #comments>
+<h2 mat-dialog-title>Comments</h2>
+<mat-dialog-content class="mat-typography" style="width: 500px;max-height: 400px;">
+<mat-list>
+  <div *ngFor="let comment of commentList" class="comment-container">
+    <div class="comment-header">
+      {{ comment.createdByFirstName }} {{ comment.createdByLastName }}
+      <span class="comment-date">{{ comment.createdAt | date: 'medium' }}</span>
+    </div>
+    <div class="comment-body">
+      {{ comment.commentText }}
+    </div>
+  </div>
+</mat-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+</ng-template>
+
+<ng-template #addcomments>
+  <h2 mat-dialog-title>Add Comment</h2>
+  <mat-dialog-content style="width: 400px;">
+    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+      <mat-label>Comment</mat-label>
+      <textarea matInput [(ngModel)]="commentText" rows="8" placeholder="Type your comment here..."
+        [ngModelOptions]="{standalone: true}">
+      </textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="primary" (click)="onAddComment()">Add Comment</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</ng-template>
+

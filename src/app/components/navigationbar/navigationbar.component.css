@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+
+  color     : white;
+  background: #39737a;
+}
+
+.m-right {
+  margin-right: 48px;
+}
+
+.m-l-10 {
+  margin-left: 10px;
+}
+
+.is-active {
+  background-color: #543838d1 !important;
+}

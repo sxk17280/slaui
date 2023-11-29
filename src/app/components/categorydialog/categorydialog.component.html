@@ -1,0 +1,14 @@
+
+<div mat-dialog-content>
+
+    <mat-form-field class="example-full-width" appearance="outline" style="margin-left:15px">
+        <mat-label>Category Name</mat-label>
+        <input matInput [(ngModel)]="categoryName" placeholder="Category Name"
+            [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button style="margin: 14px" mat-raised-button class="float-right" color="primary" (click)="addCategory()">Save</button>
+
+</div>
